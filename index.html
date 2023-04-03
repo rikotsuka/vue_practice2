@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <meta charset="UTF-8">
+  <title>チャットツール</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    #messages li {
+      margin-bottom: 10px;
+    }
+    #message-input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #send-button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-  <div id="app">{{ message }}</div>
-  <script type="module">
-    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+  <h1>チャットツール</h1>
+  <ul id="messages"></ul>
+  <input type="text" id="message-input" placeholder="メッセージを入力">
+  <button id="send-button">送信</button>
 
-    createApp({
-      data() {
-        return {
-          message: 'Hello Vue!'
-        }
-      }
-    }).mount('#app')
-  </script>
-  <script type="module" src="/src/main.js"></script>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- Socket.ioのライブラリを読み込む -->
+<script src="https://cdn.socket.io/4.1.1/socket.io.min.js"></script>
+
+  <!-- JavaScriptファイルを読み込む -->
+  <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="style.css">
+  
 </body>
-
 </html>
